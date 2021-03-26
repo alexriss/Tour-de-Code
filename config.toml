@@ -31,7 +31,7 @@ description = "Bite-sized code snacks"
 #copyright = "2020-2021"
 profilePicture = "images/profile.png"
 keywords = ""
-favicon = "favicons/favicon.ico"
+favicon = "favicons/"
 customCss = ["css/extra.css"]
 # example ["js/custom.js"]
 customJs = [] 
