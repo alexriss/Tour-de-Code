@@ -78,6 +78,13 @@ title = "Linkedin"
 url = "https://www.linkedin.com/in/alexander-riss-944b8611"
 
 
+# Comments
+[params.utterances]
+repo = "alexriss/Tour-de-Code"
+issueTerm = "pathname"
+theme= "preferred-color-scheme"
+# label = 
+
 ## Menu items
 
 [menu]
