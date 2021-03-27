@@ -7,6 +7,7 @@ summarylength = 10
 enableEmoji = true
 enableRobotsTXT = true
 
+
 # Enable Disqus
 #disqusShortname = ""
 
@@ -50,6 +51,8 @@ doNotLoadAnimations = false
 # CommentoURL = "https://commento.example.com/js/commento.js"
 # Read More links for truncated summaries
 # readMore = true
+
+staticDir = ["static"]
 
 # Google Analytics
 gtagId = "G-8YWH8FH629"

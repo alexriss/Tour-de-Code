@@ -15,9 +15,10 @@ tags = [
 
 This article gives real-life examples of how to improve performance by using multithreaded execution and GPU compute.
 
+
 ## First, some scientific background
 
-I have recently played around with scientific simulations for bond-resolved atomic force microscopy.
+I have recently played around with scientific simulations for bond-resolved atomic force microscopy (AFM).
 If you do not know what this is, just a one-liner explanation: local force measurements can be used to image the bond-structure of single molecules.
 More information can be found in the [seminal paper by Leo Gross et al.](https://science.sciencemag.org/content/325/5944/1110.abstract)
 
@@ -25,12 +26,16 @@ Now the whole imaging mechanism is a little complicated, but very useful models 
 One mile stone was the introduction of the **Probe Particle Model**, developed by Prokop Hapala, Pavel Jelinek et al.,
 see [here](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.90.085421) and [here](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.113.226101).
 
+![AFM simulation of an olympicene-like molecule](/Tour-de-Code/images/julia_threads_GPU_df_olympicene.png
+ "Probe Particle Model simulation of an AFM image of a single olympicene-like molecule (image width: 1.6 nm)")
+
 In this model a force field is calculated
 ([Lennard Jones](https://en.wikipedia.org/wiki/Lennard-Jones_potential) and [Coulomb forces](https://en.wikipedia.org/wiki/Coulomb%27s_law))
 and the probe particle (which is attached to the atomic force microscopy tip) is _relaxed_
 within this force field, i.e. it can respond to the forces and shift out of its starting position.
 The [original code](https://github.com/ProkopHapala/ProbeParticleModel) that has been made open source (highly appreciated!)
 is programmed in Python and C.
+
 
 ## Ok, so finally we talk about code
 
