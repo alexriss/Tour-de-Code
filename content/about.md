@@ -7,7 +7,7 @@ This blog is intended to present bite-sized code snippets to outline algorithmic
 
 I am interested in scientific computing, machine learning, computational photography and arts, as well as many other topics. Currently, I am diving into [Julia](https://julialang.org/).
 
-I am still a beginner, so if you have any contributions, questions, suggestions or criticism, do not hesitate to contact me!
+If you have any contributions, questions, suggestions or criticism, do not hesitate to contact me!
 
 Peace!  
 🖖 Alex Riss
