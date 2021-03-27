@@ -25,6 +25,7 @@ pygmentsStyle = "solarized-dark"
 unsafe = true  # allow html
 
 [params]
+baseURL = "https://alexriss.github.io/Tour-de-Code/"
 title = "Tour de Code"
 author = "Tour de Code"
 description = "Bite-sized code snacks"
@@ -50,6 +51,8 @@ doNotLoadAnimations = false
 # Read More links for truncated summaries
 # readMore = true
 
+# Google Analytics
+gtagId = "G-8YWH8FH629"
 
 [params.simpleAnalytics]
 # enable = true
