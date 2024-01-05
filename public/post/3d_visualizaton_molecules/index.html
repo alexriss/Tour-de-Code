@@ -161,10 +161,7 @@
 <h2 id="the-problem">The problem</h2>
 <p>Here is a comparison of what I mean:</p>
 <p>
-  <figure>
-    <img src="/Tour-de-Code/images/3d_visualization_molecules_comparison.png" alt="Comparison of molecule at surface illustrations">
-    <figcaption>Comparison of molecule at surface illustrations</figcaption>
-  </figure>
+  <img src="/Tour-de-Code/images/3d_visualization_molecules_comparison.png" alt="Comparison of molecule at surface illustrations">
 </p>
 <p>On the left hand side is what you sometimes see in literature, created with the <a href="https://jp-minerals.org/vesta/en/">VESTA</a> software. On the right hand side is what I think is a much better illustration, created with <a href="https://julialang.org/">Julia</a> and my library <a href="https://github.com/alexriss/ChemfilesViewer.jl">ChemfilesViewer.jl</a>.</p>
 <p>I will show you how you can create such images with just a few lines of code. And even better, you can streamline this process and create a whole series of images with different molecules and surfaces automatically.</p>
@@ -181,10 +178,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">render_molecule</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
 </span></span></code></pre></div><p>It is as easy as that. This will open a window (or visualize inline if you use a Jupyter notebook) and you can rotate the molecule with the mouse. You can also zoom in and out with the mouse wheel.</p>
 <p>
-  <figure>
-    <img src="/Tour-de-Code/images/3d_visualization_molecules_demo.png" alt="Molecule visualization">
-    <figcaption>Molecule visualization</figcaption>
-  </figure>
+  <img src="/Tour-de-Code/images/3d_visualization_molecules_demo.png" alt="Molecule visualization">
 </p>
 <p>OK, we want to make it look nicer. So all we have to do is to change some of the parameters. First, we make the surface atoms bigger. Second, we change the colors of the surface atoms and the bonds within the molecule for better contrast. This means that we make the surface atoms brighter and the bonds darker.</p>
 <p>In addition, we will change the camare type to orthographic and zoom in a little bit. This will be useful for the side view.</p>
@@ -203,20 +197,14 @@
 </span></span><span class="line"><span class="cl"><span class="n">set_camera_position!</span><span class="p">(</span><span class="s">&#34;z&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">save_image</span><span class="p">(</span><span class="s">&#34;dimer_top.png&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>
-  <figure>
-    <img src="/Tour-de-Code/images/3d_visualization_molecules_dimer_top.png" alt="Molecule visualization top view">
-    <figcaption>Molecule visualization top view</figcaption>
-  </figure>
+  <img src="/Tour-de-Code/images/3d_visualization_molecules_dimer_top.png" alt="Molecule visualization top view">
 </p>
 <p>You can already see how much better it is. We can clearly see the molecular structure and the surface atoms are not distracting.</p>
 <p>Let&rsquo;s also create a side view. We just have to change the camera position to <code>y</code> and save the image again. There is a <code>-</code> for the camera position, because we want to look at the molecule from the other side.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">set_camera_position!</span><span class="p">(</span><span class="s">&#34;y&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">save_image</span><span class="p">(</span><span class="s">&#34;dimer_side.png&#34;</span><span class="p">)</span>
 </span></span></code></pre></div><p>
-  <figure>
-    <img src="/Tour-de-Code/images/3d_visualization_molecules_dimer_side.png" alt="Molecule visualization side view">
-    <figcaption>Molecule visualization side view</figcaption>
-  </figure>
+  <img src="/Tour-de-Code/images/3d_visualization_molecules_dimer_side.png" alt="Molecule visualization side view">
 </p>
 <h2 id="the-grand-finale-combining-the-images">The grand finale: combining the images</h2>
 <p>Great! Now we have two images that we can combine. We also want to crop in a bit. So we load the images and display a subset of the image matrix:</p>
@@ -226,10 +214,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">img_combined</span> <span class="o">=</span> <span class="n">vcat</span><span class="p">(</span><span class="n">fadeout_img</span><span class="p">(</span><span class="n">img_top</span><span class="p">),</span> <span class="n">fadeout_img</span><span class="p">(</span><span class="n">img_side</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl"><span class="n">save</span><span class="p">(</span><span class="s">&#34;dimer_top_side.png&#34;</span><span class="p">,</span> <span class="n">img_combined</span><span class="p">)</span>
 </span></span></code></pre></div><p>
-  <figure>
-    <img src="/Tour-de-Code/images/3d_visualization_molecules_dimer_top_side.png" alt="Molecule visualization top and side view">
-    <figcaption>Molecule visualization top and side view</figcaption>
-  </figure>
+  <img src="/Tour-de-Code/images/3d_visualization_molecules_dimer_top_side.png" alt="Molecule visualization top and side view">
 </p>
 <p>It is that easy. You can also create a whole series of images with different molecules and surfaces automatically. I have done this for my our recent paper <a href="https://www.nature.com/articles/s41557-023-01327-6">The role of aromaticity in the cyclization and polymerization of alkyne-substituted porphyrins on Au(111)</a> (published in <em>Nature Chemistry</em>).</p>
 <h2 id="going-interactive">Going interactive</h2>
