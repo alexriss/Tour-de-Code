@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Probe particle model on Tour de Code - Bite-sized code snacks</title>
+    <link>https://alexriss.github.io/Tour-de-Code/tags/probe-particle-model/</link>
+    <description>Recent content in Probe particle model on Tour de Code - Bite-sized code snacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://alexriss.github.io/Tour-de-Code/tags/probe-particle-model/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Julia performance - Threads &amp;  GPU</title>
+      <link>https://alexriss.github.io/Tour-de-Code/post/julia_threads_gpu/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/post/julia_threads_gpu/</guid>
+      <description>This article gives real-life examples of how to improve performance by using multithreaded execution and GPU compute.</description>
+    </item>
+  </channel>
+</rss>

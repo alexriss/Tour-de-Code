@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> Tour de Code | Visualization of molecules at surfaces </title>
+
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.121.1"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Bite-sized code snacks">
+    
+    <link rel="stylesheet"
+          href="https://alexriss.github.io/Tour-de-Code/css/style.min.2277e4d1f5f913138c1883033695f7a9779a2dcdc66ae94d514bd151bebd8f78.css"
+          integrity="sha256-Infk0fX5ExOMGIMDNpX3qXeaLc3GaulNUUvRUb69j3g="
+          crossorigin="anonymous"
+          type="text/css">
+    
+    <link rel="stylesheet"
+        href="https://alexriss.github.io/Tour-de-Code/css/markupHighlight.min.efa70c206cf2b9d357de80860d19260b5765812e637bae02c8195a18c3322b15.css"
+        integrity="sha256-76cMIGzyudNX3oCGDRkmC1dlgS5je64CyBlaGMMyKxU="
+        crossorigin="anonymous"
+        type="text/css">
+    
+        
+        
+        <link rel="stylesheet"
+        href="https://alexriss.github.io/Tour-de-Code/css/extra.min.a8d99950595f3ee89dcfdd71edd2280ec1f6148d45ff841548048540c165f02a.css"
+        integrity="sha256-qNmZUFlfPuidz91x7dIoDsH2FI1F/4QVSASFQMFl8Co="
+        crossorigin="anonymous"
+        media="screen" />
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
+
+    
+    <link rel="shortcut icon" href="https://alexriss.github.io/Tour-de-Code/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://alexriss.github.io/Tour-de-Code/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://alexriss.github.io/Tour-de-Code/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://alexriss.github.io/Tour-de-Code/favicons/favicon-16x16.png">
+
+    <link rel="canonical" href="https://alexriss.github.io/Tour-de-Code/post/3d_visualizaton_molecules/">
+
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="https://alexriss.github.io/Tour-de-Code/js/anatole-header.min.df804b63b5bd8474ea0756ea874bc8f1e92552708cc6ea43aa0d76981dc419f9.js"
+            integrity="sha256-34BLY7W9hHTqB1bqh0vI8eklUnCMxupDqg12mB3EGfk="
+            crossorigin="anonymous"></script>
+
+
+    
+        
+        
+        <script type="text/javascript"
+                src="https://alexriss.github.io/Tour-de-Code/js/anatole-theme-switcher.min.3829579c725749492568b0e6fa9da3012a7fc37fd291b4fd79e33c1df5d8a34a.js"
+                integrity="sha256-OClXnHJXSUklaLDm&#43;p2jASp/w3/SkbT9eeM8HfXYo0o="
+                crossorigin="anonymous"></script>
+    
+    <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://alexriss.github.io/Tour-de-Code/images/site-feature-image.png" /><meta name="twitter:title" content="Visualization of molecules at surfaces"/>
+<meta name="twitter:description" content="This is a short post about how to visualize molecules at surfaces."/>
+
+
+    
+
+</head>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="https://alexriss.github.io/Tour-de-Code/images/profile.png" alt="profile picture">
+            <h3 title=""><a href="https://alexriss.github.io/Tour-de-Code/">Tour de Code</a></h3>
+            <div class="description">
+                <p>Bite-sized code snacks</p>
+            </div>
+        </div>
+    </div>
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://github.com/alexriss" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://twitter.com/00alexx" rel="me" aria-label="Twitter">
+                    <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://www.linkedin.com/in/alexander-riss-944b8611" rel="me" aria-label="Linkedin">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Tour de Code  2024 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/Tour-de-Code/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/Tour-de-Code/post/"
+                        
+                   title="">Posts</a></li>
+        
+            
+            <li><a 
+                   href="/Tour-de-Code/about/"
+                        
+                   title="">About</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>Visualization of molecules at surfaces</h3>
+                
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date"> Fri, Jan 5, 2024 
+                                           </span>
+                        <em class="fas fa-stopwatch"></em>
+                        <span class="reading-time">4-minute read</span>
+                    </div>
+                
+            </div>
+
+            <p>This is a short post about how to visualize molecules at surfaces.This is one of my pet peeves about scientific illustrations: they are often not very clear. I have seen many illustrations of molecules at surfaces that are close to useless. I think this is a shame, because it is not very difficult to make them look nice. I will show you how to do it in this post.</p>
+<h2 id="the-problem">The problem</h2>
+<p>Here is a comparison of what I mean:</p>
+<p>
+  <figure>
+    <img src="/Tour-de-Code/images/3d_visualization_molecules_comparison.png" alt="Comparison of molecule at surface illustrations">
+    <figcaption>Comparison of molecule at surface illustrations</figcaption>
+  </figure>
+</p>
+<p>On the left hand side is what you sometimes see in literature, created with the <a href="https://jp-minerals.org/vesta/en/">VESTA</a> software. On the right hand side is what I think is a much better illustration, created with <a href="https://julialang.org/">Julia</a> and my library <a href="https://github.com/alexriss/ChemfilesViewer.jl">ChemfilesViewer.jl</a>.</p>
+<p>I will show you how you can create such images with just a few lines of code. And even better, you can streamline this process and create a whole series of images with different molecules and surfaces automatically.</p>
+<h2 id="the-data">The data</h2>
+<p>The data that we need is the molecule and the surface - this is what you will usually get from DFT calculations.  The molecule can be in any common format, such as <code>.xyz</code>, <code>.sdf</code>, <code>.pdb</code> and so on.</p>
+<h2 id="the-code">The code</h2>
+<p>Let&rsquo;s code step by step. First we include the necessary packages and load the molecule from an xyz file that contains the atomic coodinated that were obtained from theoretical calculations:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="k">using</span> <span class="n">ChemfilesViewer</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">Images</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mol</span> <span class="o">=</span> <span class="n">load_molecule</span><span class="p">(</span><span class="s">&#34;dimer.xyz&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>If you do not have <a href="https://github.com/alexriss/ChemfilesViewer.jl">ChemfilesViewer.jl</a> installed already, you can do so with <code>] add ChemfilesViewer</code> in the Julia REPL.</p>
+<p>Ok, now we just bring up the visualization:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">render_molecule</span><span class="p">(</span><span class="n">mol</span><span class="p">)</span>
+</span></span></code></pre></div><p>It is as easy as that. This will open a window (or visualize inline if you use a Jupyter notebook) and you can rotate the molecule with the mouse. You can also zoom in and out with the mouse wheel.</p>
+<p>
+  <figure>
+    <img src="/Tour-de-Code/images/3d_visualization_molecules_demo.png" alt="Molecule visualization">
+    <figcaption>Molecule visualization</figcaption>
+  </figure>
+</p>
+<p>OK, we want to make it look nicer. So all we have to do is to change some of the parameters. First, we make the surface atoms bigger. Second, we change the colors of the surface atoms and the bonds within the molecule for better contrast. This means that we make the surface atoms brighter and the bonds darker.</p>
+<p>In addition, we will change the camare type to orthographic and zoom in a little bit. This will be useful for the side view.</p>
+<p>We will also hide the unit cell, because we do not need it here.</p>
+<p>And we set the camera position to the top view, i.e. <code>z</code> and save the image to a png file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">set_options!</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">Dict</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;styles&#34;</span> <span class="o">=&gt;</span> <span class="kt">Dict</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;Au&#34;</span> <span class="o">=&gt;</span> <span class="kt">Dict</span><span class="p">(</span><span class="s">&#34;color&#34;</span> <span class="o">=&gt;</span> <span class="s">&#34;#feefa9&#34;</span><span class="p">,</span> <span class="s">&#34;radius&#34;</span> <span class="o">=&gt;</span> <span class="mf">2.4</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="s">&#34;bond&#34;</span> <span class="o">=&gt;</span> <span class="kt">Dict</span><span class="p">(</span><span class="s">&#34;color&#34;</span> <span class="o">=&gt;</span> <span class="s">&#34;#303030&#34;</span><span class="p">,</span> <span class="s">&#34;radius&#34;</span> <span class="o">=&gt;</span> <span class="mf">0.3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">),</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;cameraZoom&#34;</span> <span class="o">=&gt;</span> <span class="mf">1.7</span><span class="p">,</span> <span class="s">&#34;showUnitCell&#34;</span> <span class="o">=&gt;</span> <span class="nb">false</span><span class="p">,</span> <span class="s">&#34;cameraType&#34;</span> <span class="o">=&gt;</span> <span class="s">&#34;orthographic&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">set_camera_position!</span><span class="p">(</span><span class="s">&#34;z&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">save_image</span><span class="p">(</span><span class="s">&#34;dimer_top.png&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img src="/Tour-de-Code/images/3d_visualization_molecules_dimer_top.png" alt="Molecule visualization top view">
+    <figcaption>Molecule visualization top view</figcaption>
+  </figure>
+</p>
+<p>You can already see how much better it is. We can clearly see the molecular structure and the surface atoms are not distracting.</p>
+<p>Let&rsquo;s also create a side view. We just have to change the camera position to <code>y</code> and save the image again. There is a <code>-</code> for the camera position, because we want to look at the molecule from the other side.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">set_camera_position!</span><span class="p">(</span><span class="s">&#34;y&#34;</span><span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">save_image</span><span class="p">(</span><span class="s">&#34;dimer_side.png&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img src="/Tour-de-Code/images/3d_visualization_molecules_dimer_side.png" alt="Molecule visualization side view">
+    <figcaption>Molecule visualization side view</figcaption>
+  </figure>
+</p>
+<h2 id="the-grand-finale-combining-the-images">The grand finale: combining the images</h2>
+<p>Great! Now we have two images that we can combine. We also want to crop in a bit. So we load the images and display a subset of the image matrix:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">img_top</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s">&#34;dimer_top.png&#34;</span><span class="p">)[</span><span class="mi">400</span><span class="o">:</span><span class="mi">1350</span><span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="mi">1600</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">img_side</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="s">&#34;dimer_side.png&#34;</span><span class="p">)[</span><span class="mi">320</span><span class="o">:</span><span class="mi">820</span><span class="p">,</span> <span class="mi">1</span><span class="o">:</span><span class="mi">1600</span><span class="p">]</span>
+</span></span></code></pre></div><p>And finally we create a nice fadeout effect using the function <code>fadeout_img</code> and we stack the images on top of each other using <code>vcat</code>. As easy as that! All that is left to do is to save it to a png file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">img_combined</span> <span class="o">=</span> <span class="n">vcat</span><span class="p">(</span><span class="n">fadeout_img</span><span class="p">(</span><span class="n">img_top</span><span class="p">),</span> <span class="n">fadeout_img</span><span class="p">(</span><span class="n">img_side</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">save</span><span class="p">(</span><span class="s">&#34;dimer_top_side.png&#34;</span><span class="p">,</span> <span class="n">img_combined</span><span class="p">)</span>
+</span></span></code></pre></div><p>
+  <figure>
+    <img src="/Tour-de-Code/images/3d_visualization_molecules_dimer_top_side.png" alt="Molecule visualization top and side view">
+    <figcaption>Molecule visualization top and side view</figcaption>
+  </figure>
+</p>
+<p>It is that easy. You can also create a whole series of images with different molecules and surfaces automatically. I have done this for my our recent paper <a href="https://www.nature.com/articles/s41557-023-01327-6">The role of aromaticity in the cyclization and polymerization of alkyne-substituted porphyrins on Au(111)</a> (published in <em>Nature Chemistry</em>).</p>
+<h2 id="going-interactive">Going interactive</h2>
+<p>Similarly, you can create such images for interactive visualization in the browser. This is very useful for presentations. I have done that in the past for some of my talks at conferences. You can see an example <a href="https://alexriss.github.io/intermediates-viewer/">here</a>. You can load different structures, rotate and zoom-in using the mouse. There is also an interactive video there that shows energy dissipation between the molecule and the surface.</p>
+<p>You can read about the scientific background in our previous <em>Nature Chemistry</em> paper: <a href="https://www.nature.com/articles/nchem.2506">Imaging single-molecule reaction intermediates stabilized by surface dissipation and entropy</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It only takes a few lines of code to create nice illustrations of molecules at surfaces. You can also create a whole series of images with different molecules and surfaces automatically. This is a huge time saver!</p>
+</div>
+        <div class="post-footer">
+            <div class="info">
+                
+                <span class="separator"><a class="tag" href="/Tour-de-Code/tags/julia/">Julia</a><a class="tag" href="/Tour-de-Code/tags/3d/">3d</a><a class="tag" href="/Tour-de-Code/tags/visualization/">visualization</a><a class="tag" href="/Tour-de-Code/tags/molecules/">molecules</a><a class="tag" href="/Tour-de-Code/tags/surface/">surface</a><a class="tag" href="/Tour-de-Code/tags/dft/">DFT</a><a class="tag" href="/Tour-de-Code/tags/xyz/">xyz</a><a class="tag" href="/Tour-de-Code/tags/sdf/">sdf</a></span>
+            </div>
+        </div>
+
+        <div id="fb_comments_container">
+                <h2>comments</h2>
+                <script src="https://utteranc.es/client.js" 
+        repo="alexriss/Tour-de-Code"
+        issue-term="pathname"
+        theme="preferred-color-scheme" 
+        
+        crossorigin="anonymous" 
+        async>
+</script>
+            </div>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="https://alexriss.github.io/Tour-de-Code/js/medium-zoom.min.e1c6918cbaa90022a5612f0bd71c7bf3be6d036614c5729cebfe14f7b91fa4bc.js"
+        integrity="sha256-4caRjLqpACKlYS8L1xx7875tA2YUxXKc6/4U97kfpLw="
+        crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8YWH8FH629"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8YWH8FH629');
+</script></body>
+
+</html>

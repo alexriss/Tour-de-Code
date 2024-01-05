@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Tour de Code - Bite-sized code snacks</title>
+    <link>https://alexriss.github.io/Tour-de-Code/tags/</link>
+    <description>Recent content in Tags on Tour de Code - Bite-sized code snacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Jan 2024 14:42:51 +0100</lastBuildDate>
+    <atom:link href="https://alexriss.github.io/Tour-de-Code/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3d</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/3d/</link>
+      <pubDate>Fri, 05 Jan 2024 14:42:51 +0100</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/3d/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DFT</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/dft/</link>
+      <pubDate>Fri, 05 Jan 2024 14:42:51 +0100</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/dft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Julia</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/julia/</link>
+      <pubDate>Fri, 05 Jan 2024 14:42:51 +0100</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/julia/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>molecules</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/molecules/</link>
+      <pubDate>Fri, 05 Jan 2024 14:42:51 +0100</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/molecules/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>sdf</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/sdf/</link>
+      <pubDate>Fri, 05 Jan 2024 14:42:51 +0100</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/sdf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>surface</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/surface/</link>
+      <pubDate>Fri, 05 Jan 2024 14:42:51 +0100</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/surface/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>visualization</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/visualization/</link>
+      <pubDate>Fri, 05 Jan 2024 14:42:51 +0100</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/visualization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>xyz</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/xyz/</link>
+      <pubDate>Fri, 05 Jan 2024 14:42:51 +0100</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/xyz/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AFM</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/afm/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/afm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>atomic force microscopy</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/atomic-force-microscopy/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/atomic-force-microscopy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GPU</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/gpu/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/gpu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>grid</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/grid/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/grid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Probe particle model</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/probe-particle-model/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/probe-particle-model/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>threads</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/threads/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/threads/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>index</title>
+      <link>https://alexriss.github.io/Tour-de-Code/tags/index/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/tags/index/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

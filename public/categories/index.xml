@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Tour de Code - Bite-sized code snacks</title>
+    <link>https://alexriss.github.io/Tour-de-Code/categories/</link>
+    <description>Recent content in Categories on Tour de Code - Bite-sized code snacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://alexriss.github.io/Tour-de-Code/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

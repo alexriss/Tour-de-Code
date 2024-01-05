@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme=""><head>
+    <title> Tour de Code | Julia performance - Threads &amp;  GPU </title>
+
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.121.1"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="How to improve Julia performance by multithreading and GPU compute.">
+    
+    <link rel="stylesheet"
+          href="https://alexriss.github.io/Tour-de-Code/css/style.min.2277e4d1f5f913138c1883033695f7a9779a2dcdc66ae94d514bd151bebd8f78.css"
+          integrity="sha256-Infk0fX5ExOMGIMDNpX3qXeaLc3GaulNUUvRUb69j3g="
+          crossorigin="anonymous"
+          type="text/css">
+    
+    <link rel="stylesheet"
+        href="https://alexriss.github.io/Tour-de-Code/css/markupHighlight.min.efa70c206cf2b9d357de80860d19260b5765812e637bae02c8195a18c3322b15.css"
+        integrity="sha256-76cMIGzyudNX3oCGDRkmC1dlgS5je64CyBlaGMMyKxU="
+        crossorigin="anonymous"
+        type="text/css">
+    
+        
+        
+        <link rel="stylesheet"
+        href="https://alexriss.github.io/Tour-de-Code/css/extra.min.a8d99950595f3ee89dcfdd71edd2280ec1f6148d45ff841548048540c165f02a.css"
+        integrity="sha256-qNmZUFlfPuidz91x7dIoDsH2FI1F/4QVSASFQMFl8Co="
+        crossorigin="anonymous"
+        media="screen" />
+    
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
+
+    
+    <link rel="shortcut icon" href="https://alexriss.github.io/Tour-de-Code/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://alexriss.github.io/Tour-de-Code/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://alexriss.github.io/Tour-de-Code/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://alexriss.github.io/Tour-de-Code/favicons/favicon-16x16.png">
+
+    <link rel="canonical" href="https://alexriss.github.io/Tour-de-Code/post/julia_threads_gpu/">
+
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="https://alexriss.github.io/Tour-de-Code/js/anatole-header.min.df804b63b5bd8474ea0756ea874bc8f1e92552708cc6ea43aa0d76981dc419f9.js"
+            integrity="sha256-34BLY7W9hHTqB1bqh0vI8eklUnCMxupDqg12mB3EGfk="
+            crossorigin="anonymous"></script>
+
+
+    
+        
+        
+        <script type="text/javascript"
+                src="https://alexriss.github.io/Tour-de-Code/js/anatole-theme-switcher.min.3829579c725749492568b0e6fa9da3012a7fc37fd291b4fd79e33c1df5d8a34a.js"
+                integrity="sha256-OClXnHJXSUklaLDm&#43;p2jASp/w3/SkbT9eeM8HfXYo0o="
+                crossorigin="anonymous"></script>
+    
+    <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://alexriss.github.io/Tour-de-Code/images/site-feature-image.png" /><meta name="twitter:title" content="Julia performance - Threads &amp;  GPU"/>
+<meta name="twitter:description" content="How to improve Julia performance by multithreading and GPU compute."/>
+
+
+    
+
+</head>
+<body><div class="sidebar animated fadeInDown ">
+    <div class="logo-title">
+        <div class="title">
+            <img src="https://alexriss.github.io/Tour-de-Code/images/profile.png" alt="profile picture">
+            <h3 title=""><a href="https://alexriss.github.io/Tour-de-Code/">Tour de Code</a></h3>
+            <div class="description">
+                <p>Bite-sized code snacks</p>
+            </div>
+        </div>
+    </div>
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://github.com/alexriss" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://twitter.com/00alexx" rel="me" aria-label="Twitter">
+                    <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://www.linkedin.com/in/alexander-riss-944b8611" rel="me" aria-label="Linkedin">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Tour de Code  2024 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top  animated fadeInDown ">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/Tour-de-Code/"
+                        
+                   title="">Home</a></li>
+        
+            
+            <li><a 
+                   href="/Tour-de-Code/post/"
+                        
+                   title="">Posts</a></li>
+        
+            
+            <li><a 
+                   href="/Tour-de-Code/about/"
+                        
+                   title="">About</a></li>
+        
+        
+        
+            <li class="theme-switch-item">
+                <a class="theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post  animated fadeInDown ">
+        <div class="post-content">
+            
+            <div class="post-title">
+                <h3>Julia performance - Threads &amp;  GPU</h3>
+                
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date"> Thu, Mar 25, 2021 
+                                           </span>
+                        <em class="fas fa-stopwatch"></em>
+                        <span class="reading-time">3-minute read</span>
+                    </div>
+                
+            </div>
+
+            <p>This article gives real-life examples of how to improve performance by using multithreaded execution and GPU compute.</p>
+<h2 id="first-some-scientific-background">First, some scientific background</h2>
+<p>I have recently played around with scientific simulations for bond-resolved atomic force microscopy (AFM).
+If you do not know what this is, just a one-liner explanation: local force measurements can be used to image the bond-structure of single molecules.
+More information can be found in the <a href="https://science.sciencemag.org/content/325/5944/1110.abstract">seminal paper by Leo Gross et al.</a></p>
+<p>Now the whole imaging mechanism is a little complicated, but very useful models have been developed to simulate and analyze such images.
+One mile stone was the introduction of the <strong>Probe Particle Model</strong>, developed by Prokop Hapala, Pavel Jelinek et al.,
+see <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.90.085421">here</a> and <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.113.226101">here</a>.</p>
+<p>
+  <figure>
+    <img src="/Tour-de-Code/images/julia_threads_GPU_df_olympicene.png" alt="AFM simulation of an olympicene-like molecule">
+    <figcaption>Probe Particle Model simulation of an AFM image of a single olympicene-like molecule (image width: 1.6 nm)</figcaption>
+  </figure>
+</p>
+<p>In this model a force field is calculated
+(<a href="https://en.wikipedia.org/wiki/Lennard-Jones_potential">Lennard Jones</a> and <a href="https://en.wikipedia.org/wiki/Coulomb%27s_law">Coulomb forces</a>)
+and the probe particle (which is attached to the atomic force microscopy tip) is <em>relaxed</em>
+within this force field, i.e. it can respond to the forces and shift out of its starting position.
+The <a href="https://github.com/ProkopHapala/ProbeParticleModel">original code</a> that has been made open source (highly appreciated!)
+is programmed in Python and C.</p>
+<h2 id="ok-so-finally-we-talk-about-code">Ok, so finally we talk about code</h2>
+<p>I have implemented some basic parts of it in Julia and want to talk a little bit about performance.
+The original code runs relatively slow for a 100x100x100 grid of points - so the first most obvious thing was to use multi-threading.
+This is actually very easy to add!</p>
+<p>In the simple code there is some main loop that looks like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">eachindex</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># computation for each point in the grid</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># ...</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>All I had to do was to add the <code>@Threads.threads</code> macro:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="nd">@Threads</span><span class="o">.</span><span class="n">threads</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">eachindex</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># computation for each point in the grid</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># ...</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span></code></pre></div><p>That&rsquo;s it! Now just run julia with <a href="https://docs.julialang.org/en/v1/manual/multi-threading/">threading support</a>: <code>julia --threads 4</code>.</p>
+<p>On my old rusty i5-3570K with four threads this approach will lead to a speedup <strong>by a factor of 3.5!</strong> Isn&rsquo;t that awesome?</p>
+<h2 id="the-grand-finale-gpus-for-the-win">The grand finale: GPUs for the win!</h2>
+<p>The loop above can also be written in one function that broadcasts over <code>grid</code>. You will see in a moment why this is a convenient way for GPU computation.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">forcefield</span> <span class="o">=</span> <span class="n">force_at_point</span><span class="o">.</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="p">),</span> <span class="p">(</span><span class="n">parameter2</span><span class="p">,</span> <span class="p">))</span>
+</span></span></code></pre></div><p>The brackets around <code>parameter1</code> and <code>parameter2</code> are there to avoid broadcasting over those variables.</p>
+<p>But now let&rsquo;s get to the pralellization on the GPU. We will make use of <a href="https://github.com/JuliaGPU/CUDA.jl">CUDA arrays</a> that work with NVIDIA cards - I have a NVIDIA GeForce GTX 1080
+in my PC.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="k">using</span> <span class="n">CUDA</span>
+</span></span><span class="line"><span class="cl"><span class="n">grid_cu</span> <span class="o">=</span> <span class="n">cu</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>  <span class="c"># creates a CUDA array</span>
+</span></span><span class="line"><span class="cl"><span class="n">forcefield</span> <span class="o">=</span> <span class="n">force_at_point</span><span class="o">.</span><span class="p">(</span><span class="n">grid_cu</span><span class="p">,</span> <span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="p">),</span> <span class="p">(</span><span class="n">parameter2</span><span class="p">,</span> <span class="p">))</span></span></span></code></pre></div>
+<p>Broadcasting will automatically work on CUDA arrays. It can be as easy as that! In some cases you might want to write a <a href="https://juliagpu.github.io/CUDA.jl/dev/tutorials/introduction/">GPU kernel function</a>.
+OK, so how much faster did we get? A whopping <strong>50-fold increase in performance</strong> compared to the single-threaded calculation.
+<br /><br /></p>
+</div>
+        <div class="post-footer">
+            <div class="info">
+                
+                <span class="separator"><a class="tag" href="/Tour-de-Code/tags/julia/">Julia</a><a class="tag" href="/Tour-de-Code/tags/threads/">threads</a><a class="tag" href="/Tour-de-Code/tags/gpu/">GPU</a><a class="tag" href="/Tour-de-Code/tags/afm/">AFM</a><a class="tag" href="/Tour-de-Code/tags/atomic-force-microscopy/">atomic force microscopy</a><a class="tag" href="/Tour-de-Code/tags/probe-particle-model/">Probe particle model</a><a class="tag" href="/Tour-de-Code/tags/grid/">grid</a></span>
+            </div>
+        </div>
+
+        <div id="fb_comments_container">
+                <h2>comments</h2>
+                <script src="https://utteranc.es/client.js" 
+        repo="alexriss/Tour-de-Code"
+        issue-term="pathname"
+        theme="preferred-color-scheme" 
+        
+        crossorigin="anonymous" 
+        async>
+</script>
+            </div>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="https://alexriss.github.io/Tour-de-Code/js/medium-zoom.min.e1c6918cbaa90022a5612f0bd71c7bf3be6d036614c5729cebfe14f7b91fa4bc.js"
+        integrity="sha256-4caRjLqpACKlYS8L1xx7875tA2YUxXKc6/4U97kfpLw="
+        crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8YWH8FH629"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8YWH8FH629');
+</script></body>
+
+</html>

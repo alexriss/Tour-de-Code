@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>visualization on Tour de Code - Bite-sized code snacks</title>
+    <link>https://alexriss.github.io/Tour-de-Code/tags/visualization/</link>
+    <description>Recent content in visualization on Tour de Code - Bite-sized code snacks</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Jan 2024 14:42:51 +0100</lastBuildDate>
+    <atom:link href="https://alexriss.github.io/Tour-de-Code/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Visualization of molecules at surfaces</title>
+      <link>https://alexriss.github.io/Tour-de-Code/post/3d_visualizaton_molecules/</link>
+      <pubDate>Fri, 05 Jan 2024 14:42:51 +0100</pubDate>
+      <guid>https://alexriss.github.io/Tour-de-Code/post/3d_visualizaton_molecules/</guid>
+      <description>This is a short post about how to visualize molecules at surfaces.</description>
+    </item>
+  </channel>
+</rss>
