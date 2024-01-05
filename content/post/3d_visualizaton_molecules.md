@@ -13,7 +13,7 @@ This is a short post about how to visualize molecules at surfaces.This is one of
 
 Here is a comparison of what I mean:
 
-![Comparison of molecule at surface illustrations](/Tour-de-Code/images/3d_visualization_molecules_comparison.png "Comparison of molecule at surface illustrations")
+![Comparison of molecule at surface illustrations](/Tour-de-Code/images/3d_visualization_molecules_comparison.png)
 
 On the left hand side is what you sometimes see in literature, created with the [VESTA](https://jp-minerals.org/vesta/en/) software. On the right hand side is what I think is a much better illustration, created with [Julia](https://julialang.org/) and my library [ChemfilesViewer.jl](https://github.com/alexriss/ChemfilesViewer.jl).
 
@@ -44,7 +44,7 @@ render_molecule(mol)
 
 It is as easy as that. This will open a window (or visualize inline if you use a Jupyter notebook) and you can rotate the molecule with the mouse. You can also zoom in and out with the mouse wheel.
 
-![Molecule visualization](/Tour-de-Code/images/3d_visualization_molecules_demo.png "Molecule visualization")
+![Molecule visualization](/Tour-de-Code/images/3d_visualization_molecules_demo.png)
 
 OK, we want to make it look nicer. So all we have to do is to change some of the parameters. First, we make the surface atoms bigger. Second, we change the colors of the surface atoms and the bonds within the molecule for better contrast. This means that we make the surface atoms brighter and the bonds darker. 
 
@@ -69,7 +69,7 @@ set_camera_position!("z")
 save_image("dimer_top.png")
 ```
 
-![Molecule visualization top view](/Tour-de-Code/images/3d_visualization_molecules_dimer_top.png "Molecule visualization top view")
+![Molecule visualization top view](/Tour-de-Code/images/3d_visualization_molecules_dimer_top.png)
 
 You can already see how much better it is. We can clearly see the molecular structure and the surface atoms are not distracting.
 
@@ -80,7 +80,7 @@ set_camera_position!("y", "-")
 save_image("dimer_side.png")
 ```
 
-![Molecule visualization side view](/Tour-de-Code/images/3d_visualization_molecules_dimer_side.png "Molecule visualization side view")
+![Molecule visualization side view](/Tour-de-Code/images/3d_visualization_molecules_dimer_side.png)
 
 ## The grand finale: combining the images
 
@@ -98,7 +98,7 @@ img_combined = vcat(fadeout_img(img_top), fadeout_img(img_side))
 save("dimer_top_side.png", img_combined)
 ```
 
-![Molecule visualization top and side view](/Tour-de-Code/images/3d_visualization_molecules_dimer_top_side.png "Molecule visualization top and side view")
+![Molecule visualization top and side view](/Tour-de-Code/images/3d_visualization_molecules_dimer_top_side.png)
 
 It is that easy. You can also create a whole series of images with different molecules and surfaces automatically. I have done this for my our recent paper [The role of aromaticity in the cyclization and polymerization of alkyne-substituted porphyrins on Au(111)](https://www.nature.com/articles/s41557-023-01327-6) (published in _Nature Chemistry_).
 
