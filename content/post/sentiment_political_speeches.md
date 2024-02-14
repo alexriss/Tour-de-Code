@@ -216,8 +216,8 @@ Also, it was educational and a lot of fun to play around with NLP and LLMs.
 
 ## Disclaimer
 
-I have to say that I am not a political scientist, and I do not want to make any political statements with this post. I just wanted to show how to use NLP and LLMs to analyze text. I hope you enjoyed this post. If you have any questions or comments, please let me know.
+I have to say that I am not a political scientist, and I do not want to make any political statements with this post. So I will not dive deeper into the interpretation of the results. I just wanted to show how to use NLP and LLMs to analyze text. I hope you enjoyed this post. If you have any questions or comments, please let me know.
 
 ## Postscript: Julia vs. Python
 
-I made the deliberate choice to use [Python](https://www.python.org/), [PyTorch](https://pytorch.org/) and [fast.ai](https://www.fast.ai/). It is always nice to use Python again. However, I still prefer Julia for most of my work. It is faster, it is smoother, and the package management is sooo much better. But Python has sentimental value for me. Pun intended.
+I made the deliberate choice to use [Python](https://www.python.org/), [PyTorch](https://pytorch.org/) and [fast.ai](https://www.fast.ai/). It is always nice to code in Python again. However, I still prefer Julia for most of my work. It is faster, it is smoother, and the package management is sooo much better. But Python has sentimental value for me. Pun intended.
